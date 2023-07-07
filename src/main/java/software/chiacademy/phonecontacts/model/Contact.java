@@ -33,9 +33,7 @@ public class Contact {
 
     @ElementCollection
     @CollectionTable
-    //@Pattern(regexp = "^(.+)@(.+)$")
-    //@Email
-    private List<String> emails;
+    private List<@Email String> emails;
 
     @Column
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -46,8 +44,7 @@ public class Contact {
 
     @ElementCollection
     @CollectionTable
-    //@Pattern(regexp = "^\\+?3?8?0?\\d{2}?\\d{3}\\d{2}\\d{2}$")
-    public List<String> phones;
+    public List<@Pattern(regexp = "^\\+?3?8?0?\\d{2}?\\d{3}\\d{2}\\d{2}$") String> phones;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(

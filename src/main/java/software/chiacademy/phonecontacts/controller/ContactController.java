@@ -23,12 +23,12 @@ public class ContactController {
     }
 
     @PostMapping
-    public ResponseEntity<Contact> addContact(@RequestBody Contact contact) {
+    public ResponseEntity<Contact> addContact(@Valid @RequestBody Contact contact) {
         return ResponseEntity.ok().body(this.contactService.add(contact));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Contact> updateContact(@PathVariable long id,@RequestBody Contact contact) {
+    public ResponseEntity<Contact> updateContact(@PathVariable long id, @Valid @RequestBody Contact contact) {
         return ResponseEntity.ok().body(contactService.update(contact));
     }
 
